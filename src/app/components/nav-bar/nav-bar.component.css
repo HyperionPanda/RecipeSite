@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    
+}
+#header{
+    background-color: grey;
+}
+
+.headerButton{
+    position:relative;
+    margin-left: 10%;
+    margin-right:10%;
+}
+#loginButton{
+    margin-left:auto;
+}

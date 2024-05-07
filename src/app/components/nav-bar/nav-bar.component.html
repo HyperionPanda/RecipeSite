@@ -1,0 +1,12 @@
+<div id = "header" class = "container">
+    <!-- Can do a flex in a flex, seperate Home from the others so that home doesnt move when buttons are moving around-->
+    <button id = "homeButton" class = "headerButton">Home</button>
+
+    <button id = "loginButton" class = "headerButton" (click) = "unHide()">Login</button>
+
+    <button id = "accountButton" class = "headerButton" hidden>Account</button>
+
+    <button id = "logoutButton" class = "headerButton" (click) = "hide('loginButton','logoutButton','accountButton')" hidden>Logout</button>
+
+
+</div>
