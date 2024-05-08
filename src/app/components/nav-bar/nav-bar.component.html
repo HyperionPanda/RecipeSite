@@ -2,11 +2,28 @@
     <!-- Can do a flex in a flex, seperate Home from the others so that home doesnt move when buttons are moving around-->
     <button id = "homeButton" class = "headerButton">Home</button>
 
-    <button id = "loginButton" class = "headerButton" (click) = "unHide()">Login</button>
+    <button id = "loginButton" aria-valuetext="Login" class = "headerButton" (click) = "toggle('dropdown')">Login</button>
 
     <button id = "accountButton" class = "headerButton" hidden>Account</button>
 
     <button id = "logoutButton" class = "headerButton" (click) = "hide('loginButton','logoutButton','accountButton')" hidden>Logout</button>
 
+
+</div>
+
+<div id = "dropdown" hidden>
+    <label for = "username">Username</label>
+    <input  id ="username" type = "text" />
+
+    <label for = "password">Password</label>
+    <input id ="password" type = "password" />
+
+    <label for = "submitAccountInfo"></label>
+    <input id ="submitAccountInfo" type = "submit" value="Login" (click) = "verifyAccount()" />
+
+    <br/><br/>
+
+    <label for = "noAccount"></label>
+    <input id = "noAccount" type = "submit" value="Create an Account"/>
 
 </div>

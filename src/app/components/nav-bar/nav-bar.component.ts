@@ -11,6 +11,11 @@ export class NavBarComponent {
 
   constructor(private el : ElementRef, private renderer : Renderer2){}
 
+  toggle(toggleElement : String){
+    const toggle = this.el.nativeElement.querySelector("#" + toggleElement);
+    toggle.hidden = !toggle.hidden;
+  }
+
   unHide(){
     const loginElement = this.el.nativeElement.querySelector("#loginButton");
     const logoutElement = this.el.nativeElement.querySelector("#logoutButton");
@@ -35,7 +40,16 @@ export class NavBarComponent {
   }
 
   verifyAccount(){
-    /* back-end check */
+
+    const username = this.el.nativeElement.querySelector("#username").value;
+    const password = this.el.nativeElement.querySelector("#password").value;
+    
+    /* Call to back-end to verify username and password */
+    try{
+
+    }catch(e){
+      alert("Username/Password given does not match known account")
+    }
   }
 
 }
