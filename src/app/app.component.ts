@@ -13,4 +13,6 @@ import { ImageDragComponent } from './components/image-drag/image-drag.component
 })
 export class AppComponent {
   title = 'RecipeSite';
+  loggedIn : String;
+  constructor(){this.loggedIn = ""}
 }
