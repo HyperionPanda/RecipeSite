@@ -31,4 +31,10 @@ public class RecipeSiteController {
       return ResponseEntity.ok(result);
   }
 
+  @PostMapping(value = "login")
+  public ResponseEntity<Account> login(@RequestBody Account newAccount){
+    Account result = accountService.login(newAccount);
+    return ResponseEntity.ok(result);
+  }
+
 }

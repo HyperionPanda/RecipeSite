@@ -20,4 +20,8 @@ public class AccountService {
     }
     return 0;
   }
+  public Account login(Account checkAccount) {
+    Account account = accountRepository.findAccountByUsernameAndPassword(checkAccount.getUsername(), checkAccount.getPassword());
+    return account;
+  }
 }
