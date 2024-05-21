@@ -1,0 +1,21 @@
+#box{
+    display:flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#container{
+    width:400px;
+    height:600px;
+    background-color: burlywood;
+    margin-top: 1%;
+    margin-right: 1%;
+    text-align: center;
+
+    outline:.5em solid black;
+    border-radius: 10px;
+}
+.center{
+    
+}
