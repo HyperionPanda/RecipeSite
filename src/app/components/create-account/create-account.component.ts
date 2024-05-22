@@ -1,4 +1,5 @@
 import { Component, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-account',
@@ -9,12 +10,12 @@ import { Component, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
 })
 export class CreateAccountComponent implements AfterViewInit {
 
-  constructor(private renderer : Renderer2,private element : ElementRef){}
+  constructor(private renderer : Renderer2,private element : ElementRef, private http : HttpClient){}
 
   ngAfterViewInit(): void {
     
       const fullPage = this.element.nativeElement.ownerDocument.body;
-      this.renderer.setStyle(fullPage,"backgroundColor","blue");
+      this.renderer.setStyle(fullPage,"backgroundColor","grey");
 
   }
 
@@ -47,6 +48,8 @@ export class CreateAccountComponent implements AfterViewInit {
   }
   makeAccount(){
     alert("clicked");
+    const someaccount = "1";
+    //this.http.post("someurl",someaccount);
 
   }
 
