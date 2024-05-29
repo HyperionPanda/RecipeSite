@@ -15,6 +15,7 @@
 	<description>RecipeSite</description>
 	<properties>
 		<java.version>21</java.version>
+    <start-class>com.recipes.recipesite.RecipeSiteApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
