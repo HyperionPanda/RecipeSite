@@ -1,0 +1,20 @@
+#options{
+    display : flex;
+    flex-direction: row;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.optionsBox{
+    background-color:darkkhaki;
+    outline:.2em solid black;
+    width: 300px;
+    height: 300px;
+    margin : 50px;
+}
+
+span{
+    
+}

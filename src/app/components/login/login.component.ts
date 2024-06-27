@@ -28,6 +28,14 @@ export class LoginComponent implements AfterViewInit {
     /* Call to back-end to verify username and password */
     try{
 
+      //for testing purposes only
+      if(username != "" && password!= ""){
+        this.router.navigate(['/homepage'])
+          .then(success => console.log('navigation success?' , success))
+          .catch(console.error);
+
+      }
+
     }catch(e){
       alert("Username/Password given does not match known account")
     }
