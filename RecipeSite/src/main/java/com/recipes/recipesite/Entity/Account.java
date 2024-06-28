@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.Set;
+
 @Entity
 public class Account {
 
@@ -15,6 +17,9 @@ public class Account {
   private String username;
 
   private String password;
+
+  @OneToMany(mappedBy = "account")
+  private Set<RecipeList> accounts;
 
   public Account(){}
 

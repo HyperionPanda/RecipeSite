@@ -2,18 +2,23 @@ package com.recipes.recipesite.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Recipe {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private int recipeId;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer recipeId;
 
   private int userId;
 
   private String ingredients;
 
   private String cookingSteps;
+
+  @OneToMany(mappedBy = "recipe")
+  private Set<RecipeList> recipes;
 
   public Recipe(){ this.userId = 0; this.ingredients = ""; this.cookingSteps = ""; }
 

@@ -15,7 +15,11 @@ public class RecipeSiteController {
   @Autowired
   AccountService accountService;
 
-
+  //This works
+  @GetMapping
+  public String openingTest(){
+    return "hello";
+  }
 
 
   @GetMapping(value = "/test")
