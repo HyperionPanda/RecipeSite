@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-add-recipe',
+  selector: 'app-addRecipe',
   standalone: true,
   imports: [],
   templateUrl: './add-recipe.component.html',

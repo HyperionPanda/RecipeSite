@@ -31,7 +31,6 @@ export class LoginComponent implements AfterViewInit {
       //for testing purposes only
       if(username != "" && password!= ""){
         this.router.navigate(['/homepage'])
-          .then(success => console.log('navigation success?' , success))
           .catch(console.error);
 
       }
