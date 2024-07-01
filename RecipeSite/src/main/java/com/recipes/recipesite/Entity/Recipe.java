@@ -13,6 +13,8 @@ public class Recipe {
 
   private int userId;
 
+  private String name;
+
   private String ingredients;
 
   private String cookingSteps;
@@ -20,10 +22,11 @@ public class Recipe {
   @OneToMany(mappedBy = "recipe")
   private Set<RecipeList> recipes;
 
-  public Recipe(){ this.userId = 0; this.ingredients = ""; this.cookingSteps = ""; }
+  public Recipe(){ this.userId = 0; this.ingredients = ""; this.cookingSteps = ""; this.name = ""; }
 
-  public Recipe(int userId, String ingredients, String cookingSteps) {
+  public Recipe(int userId, String name, String ingredients, String cookingSteps) {
     this.userId = userId;
+    this.name = name;
     this.ingredients = ingredients;
     this.cookingSteps = cookingSteps;
   }
@@ -49,9 +52,13 @@ public class Recipe {
     return cookingSteps;
   }
 
+  public String getName(){
+    return name;
+  }
+
   @Override
   public String toString() {
-    return "Recipe [recipeId=" + recipeId + ", userId=" + userId + ", ingredients=" + ingredients+"]";
+    return "Recipe [recipeId=" + recipeId + ", userId=" + userId + ", name="+name+", ingredients=" + ingredients+"]";
   }
 
 

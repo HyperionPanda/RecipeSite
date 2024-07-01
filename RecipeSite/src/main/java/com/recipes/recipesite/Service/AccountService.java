@@ -24,4 +24,15 @@ public class AccountService {
     Account account = accountRepository.findAccountByUsernameAndPassword(checkAccount.getUsername(), checkAccount.getPassword());
     return account;
   }
+
+  //remove recipes as well?
+  public Integer removeAccount(Account account){
+    try{
+      accountRepository.delete(account);
+      return 1;
+    }catch(Error e){
+      return 0;
+    }
+  }
+
 }

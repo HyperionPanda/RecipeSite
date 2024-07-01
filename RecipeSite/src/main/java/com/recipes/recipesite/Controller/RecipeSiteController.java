@@ -1,7 +1,9 @@
 package com.recipes.recipesite.Controller;
 
 import com.recipes.recipesite.Entity.Account;
+import com.recipes.recipesite.Entity.Recipe;
 import com.recipes.recipesite.Service.AccountService;
+import com.recipes.recipesite.Service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,9 @@ public class RecipeSiteController {
   //@Autowired services here
   @Autowired
   AccountService accountService;
+
+  @Autowired
+  RecipeService recipeService;
 
   //This works
   @GetMapping
@@ -40,5 +45,26 @@ public class RecipeSiteController {
     Account result = accountService.login(newAccount);
     return ResponseEntity.ok(result);
   }
+
+  @PostMapping(value = "/removeAccount")
+  public ResponseEntity<Integer> removeAccount(@RequestBody Account removeAccount) {
+    Integer result = accountService.removeAccount(removeAccount);
+    if (result == 1) {
+      return ResponseEntity.ok(1);
+    } else {
+      return ResponseEntity.ok(0);
+    }
+  }
+
+    @PostMapping(value = "/getRecipe")
+    public ResponseEntity<Recipe> getRecipeByName(@RequestBody String name){
+      Recipe result = recipeService.getRecipeByName(name);
+      if(result != null){
+        return ResponseEntity.ok(result);
+      }else{
+        return ResponseEntity.ok(null);
+      }
+  }
+
 
 }
