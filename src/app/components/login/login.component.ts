@@ -1,6 +1,7 @@
 import { Component, ElementRef,AfterViewInit, Renderer2 } from '@angular/core';
 import { CreateAccountComponent } from '../create-account/create-account.component';
 import { Router } from '@angular/router';
+import { Account } from '../../models/Account';
 
 @Component({
   selector: 'app-login',
@@ -20,16 +21,32 @@ export class LoginComponent implements AfterViewInit {
 
 }
 
-  verifyAccount(){
+  async verifyAccount(){
 
     const username = this.el.nativeElement.querySelector("#username").value;
     const password = this.el.nativeElement.querySelector("#password").value;
+
+    const checkAccount : Account = {
+      id: 0,
+      username : username,
+      password : password
+    };
+
+    const json = {
+      method: "POST",
+      body: JSON.stringify(checkAccount),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    }
     
     /* Call to back-end to verify username and password */
     try{
+      const loginResponse = await fetch("http://localhost:8080/login",json);
 
       //for testing purposes only
-      if(username != "" && password!= ""){
+      if(loginResponse != null){
+
+        sessionStorage.setItem("account", username);
+
         this.router.navigate(['/homepage'])
           .catch(console.error);
 
@@ -42,7 +59,6 @@ export class LoginComponent implements AfterViewInit {
 
   createAccount(){
     this.router.navigate(['/newAccount'])
-      .then(success => console.log('navigation success?' , success))
       .catch(console.error); 
   }
 

@@ -1,5 +1,6 @@
 import { Component, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Account } from '../../models/Account';
 
 @Component({
   selector: 'app-create-account',
@@ -44,11 +45,37 @@ export class CreateAccountComponent implements AfterViewInit {
       return;
     }
 
-    this.makeAccount();
+    this.makeAccount(username.value,password.value);
   }
-  makeAccount(){
-    alert("clicked");
-    const someaccount = "1";
+  async makeAccount(user : String, pass : String){
+
+    const checkAccount : Account = {
+      id: 0,
+      username : user,
+      password : pass
+    };
+
+    const json = {
+      method: "POST",
+      body: JSON.stringify(checkAccount),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    }
+
+    try{
+
+      console.log(checkAccount);
+      console.log(JSON.stringify(checkAccount));
+
+      const response = await fetch("http://localhost:8080/newAccount",json);
+      console.log("Response of create account = "+response);
+      console.log("Response Status of create account = "+response.status);
+      if(response.status == 1){
+        alert("Account created successfully");
+      }
+    }catch(e){
+
+    }
+
     //this.http.post("someurl",someaccount);
 
   }
