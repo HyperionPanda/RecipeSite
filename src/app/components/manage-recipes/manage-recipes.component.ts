@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './manage-recipes.component.css'
 })
 export class ManageRecipesComponent implements OnInit {
-  private recipes : Recipe[];
+  recipes : Recipe[];
 
   constructor(private http : HttpClient){this.recipes = []}
 
