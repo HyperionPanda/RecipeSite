@@ -40,4 +40,8 @@ export class ManageRecipesComponent implements OnInit {
     }
   }
 
+  viewRecipe(){
+    console.log("view Recipe");
+  }
+
 }
