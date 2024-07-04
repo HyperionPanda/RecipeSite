@@ -22,28 +22,28 @@ public class RecipeSiteController {
 
   //This works
   @GetMapping
-  public String openingTest(){
+  public String openingTest() {
     return "hello";
   }
 
 
   @GetMapping(value = "/test")
-  public ResponseEntity<String> test(){
-      return ResponseEntity.ok( "test");
+  public ResponseEntity<String> test() {
+    return ResponseEntity.ok("test");
   }
 
 
   @PostMapping(value = "newAccount")
-  public ResponseEntity<Integer> addAccount(@RequestBody Account newAccount){
+  public ResponseEntity<Integer> addAccount(@RequestBody Account newAccount) {
     System.out.println("1");
     Integer result = accountService.addAccount(newAccount);
     System.out.println("3");
-      //test result if 1 or 0?
-      return ResponseEntity.ok(result);
+    //test result if 1 or 0?
+    return ResponseEntity.ok(result);
   }
 
   @PostMapping(value = "login")
-  public ResponseEntity<Account> login(@RequestBody Account newAccount){
+  public ResponseEntity<Account> login(@RequestBody Account newAccount) {
     Account result = accountService.login(newAccount);
     return ResponseEntity.ok(result);
   }
@@ -58,15 +58,24 @@ public class RecipeSiteController {
     }
   }
 
-    @PostMapping(value = "/getRecipe")
-    public ResponseEntity<Recipe> getRecipeByName(@RequestBody String name){
-      Recipe result = recipeService.getRecipeByName(name);
-      if(result != null){
-        return ResponseEntity.ok(result);
-      }else{
-        return ResponseEntity.ok(null);
-      }
+  @PostMapping(value = "/getRecipe")
+  public ResponseEntity<Recipe> getRecipeByName(@RequestBody String name) {
+    Recipe result = recipeService.getRecipeByName(name);
+    if (result != null) {
+      return ResponseEntity.ok(result);
+    } else {
+      return ResponseEntity.ok(null);
+    }
   }
 
-
+  @PostMapping(value = "/getAllRecipes")
+  public ResponseEntity<Recipe[]> getAllRecipes(@RequestBody String accountName) {
+    Integer userId = accountService.getAccountId(accountName);
+    Recipe[] result = recipeService.getAllRecipes(userId);
+    if (result != null) {
+      return ResponseEntity.ok(result);
+    } else {
+      return ResponseEntity.ok(null);
+    }
+  }
 }

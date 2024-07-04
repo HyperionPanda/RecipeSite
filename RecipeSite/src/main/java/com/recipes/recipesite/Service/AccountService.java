@@ -36,4 +36,12 @@ public class AccountService {
     }
   }
 
+  public Integer getAccountId(String accountName){
+    try{
+      return accountRepository.findIdByUsername(accountName);
+    }catch(Error e){
+      return 0;
+    }
+  }
+
 }

@@ -21,5 +21,10 @@ public class RecipeService {
   public Recipe getRecipeByName(String name) {
     return recipeRepository.findRecipeByName(name);
   }
+  public Recipe[] getAllRecipes(Integer accountId) {
+    Long userId  = accountId.longValue();
+    return recipeRepository.findAllRecipesByUserId(userId);
+  }
+
 
 }
