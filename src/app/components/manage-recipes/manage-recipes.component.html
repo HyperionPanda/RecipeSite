@@ -1,4 +1,5 @@
 
-@for(recipe of recipes; track recipe){
-    <button (click) = "viewRecipe()"><span>recipe.name</span></button>
+<div id = "container"></div>
+@for(recipe of testRecipes; track recipe; let i = $index){
+    <button id = "recipe{{i}}" value = "{{recipe.name}}" (click) = "viewRecipe(i)"><span>{{recipe.name}}</span></button>
 }
