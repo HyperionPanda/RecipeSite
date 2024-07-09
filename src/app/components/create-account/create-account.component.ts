@@ -63,17 +63,13 @@ export class CreateAccountComponent implements AfterViewInit {
 
     try{
 
-      console.log(checkAccount);
-      console.log(JSON.stringify(checkAccount));
-
       const response = await fetch("http://localhost:8080/newAccount",json);
-      console.log("Response of create account = "+response);
-      console.log("Response Status of create account = "+response.status);
-      if(response.status == 1){
+      
+      if(response.status == 200){
         alert("Account created successfully");
       }
     }catch(e){
-
+      alert("something went wrong with making your account, please try again")
     }
 
     //this.http.post("someurl",someaccount);

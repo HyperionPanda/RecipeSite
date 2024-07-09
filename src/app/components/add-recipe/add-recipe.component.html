@@ -1,1 +1,16 @@
-<p>add-recipe works!</p>
+<div id = "recipePage">
+
+    <label for = "recipeName">What do you want to call your recipie? </label>
+    <input id = "recipeName" type = "text" required/>
+    <br/><br/>
+
+    <label for = "recipeIngredients">What are the needed ingredients? </label>
+    <input id = "recipeIngredients" type = "text" />
+    <br/><br/>
+
+    <label for = "recipeSteps">What are the necessary steps? </label>
+    <input id = "recipeSteps" type = "text" />
+    <br/><br/>
+
+    <button (click) = storeRecipe()> Add Recipe </button>
+</div>

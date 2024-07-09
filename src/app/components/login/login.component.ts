@@ -25,7 +25,7 @@ export class LoginComponent implements AfterViewInit {
 
     const username = this.el.nativeElement.querySelector("#username").value;
     const password = this.el.nativeElement.querySelector("#password").value;
-
+    
     const checkAccount : Account = {
       id: 0,
       username : username,
@@ -41,9 +41,10 @@ export class LoginComponent implements AfterViewInit {
     /* Call to back-end to verify username and password */
     try{
       const loginResponse = await fetch("http://localhost:8080/login",json);
-
+      let loginResponseJson = loginResponse.json();
+      console.log(loginResponseJson);
       //for testing purposes only
-      if(loginResponse != null){
+      if(loginResponseJson != null){
 
         sessionStorage.setItem("account", username);
 
