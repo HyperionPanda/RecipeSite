@@ -12,7 +12,7 @@ public class AccountService {
 
   //use @Transactional ?
   public Integer addAccount(Account account) {
-    System.out.println("2");
+
     if (account != null){
       Account test = accountRepository.save(account);
       if (test != null) {

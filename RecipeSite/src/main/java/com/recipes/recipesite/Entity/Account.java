@@ -27,6 +27,15 @@ public class Account {
     this.username = username;
     this.password = password;
   }
+  public Account(Integer id, String username, String password) {
+    this.id = id;
+    this.username = username;
+    this.password = password;
+  }
+
+  public Integer getAccountId(){
+    return this.id;
+  }
 
   public String getUsername(){
     return username;
@@ -42,5 +51,6 @@ public class Account {
   public void setPassword(String newPassword){
     this.password = newPassword;
   }
+
 
 }

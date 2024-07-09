@@ -35,10 +35,8 @@ public class RecipeSiteController {
 
   @PostMapping(value = "newAccount")
   public ResponseEntity<Integer> addAccount(@RequestBody Account newAccount) {
-    System.out.println("1");
     Integer result = accountService.addAccount(newAccount);
-    System.out.println("3");
-    //test result if 1 or 0?
+
     return ResponseEntity.ok(result);
   }
 
