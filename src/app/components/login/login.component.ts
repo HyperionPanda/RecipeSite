@@ -40,13 +40,15 @@ export class LoginComponent implements AfterViewInit {
     
     /* Call to back-end to verify username and password */
     try{
-      const loginResponse = await fetch("http://localhost:8080/login",json);
-      let loginResponseJson = loginResponse.json();
-      console.log(loginResponseJson);
-      //for testing purposes only
-      if(loginResponseJson != null){
+      const loginResponse : Account = await fetch("http://localhost:8080/login",json)
+      .then(response => response.json())
+      .then(responseJson => {return responseJson})
+      .catch(error => alert(error));
+      
+      if(loginResponse != null){
 
         sessionStorage.setItem("account", username);
+        sessionStorage.setItem("accountID", loginResponse.id+"");
 
         this.router.navigate(['/homepage'])
           .catch(console.error);

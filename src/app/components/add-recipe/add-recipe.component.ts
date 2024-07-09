@@ -13,19 +13,27 @@ export class AddRecipeComponent {
   constructor(private el : ElementRef){}
 
   async storeRecipe(){
+    try{
 
-    const recipe : Recipe = {
-      recipeId: 0,
-      userId : 0,
-      name : this.el.nativeElement.querySelector("#recipeName").value,
-      ingredients : this.el.nativeElement.querySelector("#recipeIngredients").value,
-      cookingSteps :this.el.nativeElement.querySelector("#recipeSteps").value
-    };
+      const recipe : Recipe = {
+        recipeId: 0,
+        userId : +sessionStorage.getItem("accountID")!,
+        name : this.el.nativeElement.querySelector("#recipeName").value,
+        ingredients : this.el.nativeElement.querySelector("#recipeIngredients").value,
+        cookingSteps :this.el.nativeElement.querySelector("#recipeSteps").value
+      };
 
-    const json = {
-      method: "POST",
-      body: JSON.stringify(recipe),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
+      const json = {
+        method: "POST",
+        body: JSON.stringify(recipe),
+        headers: {"Content-type": "application/json; charset=UTF-8"}
+      }
+      //make call based on JSON
+
+
+      
+    }catch(e){
+      alert(e);
     }
   }
 
